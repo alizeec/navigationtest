@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/fragment1">
+
+    <!-- FRAGMENT 1 -->
+    <fragment
+            android:id="@+id/fragment1"
+            android:name="com.example.alizee.navigationtest.Fragment1"
+            android:label="fragment1"
+            tools:layout="@layout/fragment1">
+        <action
+                android:id="@+id/action_fragment1_to_fragmentEven"
+                app:destination="@id/fragmentEven"/>
+       <!-- <action
+                android:id="@+id/action_fragment1_to_fragmentEven"
+                app:destination="@id/fragmentEven"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@android:anim/slide_in_left"
+                app:popExitAnim="@android:anim/slide_out_right"/>-->
+        <action
+                android:id="@+id/action_fragment1_to_fragmentOdd"
+                app:destination="@id/fragmentOdd"/>
+    </fragment>
+
+    <!-- FRAGMENT EVEN -->
+    <fragment
+            android:id="@+id/fragmentEven"
+            android:name="com.example.alizee.navigationtest.FragmentEven"
+            android:label="fragmentEven"
+            tools:layout="@layout/fragment_even">
+        <argument
+                app:argType="integer"
+                android:name="id" />
+        <argument
+                app:argType="string"
+                android:name="name"/>
+        <argument
+                app:argType="string"
+                android:defaultValue="Default message"
+                android:name="message"/>
+        <deepLink app:uri="myapp.com/{id}/{name}" />
+    </fragment>
+
+    <!-- FRAGMENT ODD -->
+    <fragment
+            android:id="@+id/fragmentOdd"
+            android:name="com.example.alizee.navigationtest.FragmentOdd"
+            android:label="fragmentOdd"
+            tools:layout="@layout/fragment_odd">
+        <argument
+                app:argType="integer"
+                android:name="id" />
+        <argument
+                app:argType="string"
+                android:name="name"/>
+        <argument
+                app:argType="string"
+                android:defaultValue="Default message"
+                android:name="message"/>
+    </fragment>
+</navigation>
